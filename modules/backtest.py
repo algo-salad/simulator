@@ -1,9 +1,9 @@
-from strategy import Strategy
-from portfolio import FakePorfolio
+from modules.strategy import Strategy
+from modules.portfolio import FakePorfolio
 import pandas as pd
 from datetime import datetime
 from typing import List
-from helpers import get_git_root
+from modules.helpers import get_git_root
 
 DATA_ROOT = f'{get_git_root()}/data/'
 
