@@ -3,6 +3,9 @@ from portfolio import FakePorfolio
 import pandas as pd
 from datetime import datetime
 from typing import List
+from helpers import get_git_root
+
+DATA_ROOT = f'{get_git_root()}/data/'
 
 class Backtest:
 
@@ -26,7 +29,7 @@ class Backtest:
         data = None
         for ticker in self.tickers:
             name = f'{ticker}_{self.scope}'
-            df = pd.read_csv(f'{name}.csv')
+            df = pd.read_csv(f'{DATA_ROOT}/{name}.csv')
             df['Date'] = df['Date'].astype('datetime64')
             df = df[['Date', 'Open']].rename(columns={'Open': f'{ticker}'})
             df = df.loc[(df['Date'] >= self.start) & (df['Date'] <= self.end)].reset_index(drop=True)
