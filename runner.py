@@ -8,10 +8,7 @@ def test_run():
             return 0.3
         return -1
 
-    b = Backtest(1000, 
-                 '2000-01-01', 
-                 '2022-01-31', 
-                 [Strategy('SPY', 'intraday', fn)])
+    b = Backtest('2000-01-01', '2022-01-31', [Strategy('SPY', 'intraday', fn)])
     print(b.run())
 
 if __name__ == '__main__':

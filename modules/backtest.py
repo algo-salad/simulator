@@ -10,10 +10,10 @@ DATA_ROOT = f'{get_git_root()}/data/'
 class Backtest:
 
     def __init__(self, 
-                 start_value, #starting portfolio value
                  datetime_start, 
                  datetime_end, 
-                 strategies: List[Strategy]
+                 strategies: List[Strategy],
+                 start_value=1000,
                  ):
         self.portfolio = FakePorfolio(start_value)
         self.start_value = start_value
