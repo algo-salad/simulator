@@ -44,7 +44,7 @@ class Backtest:
                 price = self.data.iloc[i][strategy.ticker]
                 history = self.data.iloc[:i][strategy.ticker].to_list()
                 #add other params in here that logic might require
-                proportion = strategy.execute(price, history)
+                proportion = strategy.logic(price, history)
                 if proportion > 0: 
                     self.portfolio.buy_percent_cash(strategy.ticker, price, proportion)
                 else:
